@@ -1,0 +1,43 @@
+{
+  "bg": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpng.pngtree.com%2Fback_origin_pic%2F02%2F65%2F13%2F2e67c6c53c23b7cab25d74b321cb5250.jpg&f=1&nofb=1",
+  "title": "Coffee Quiz",
+  "description": "Teste seu nivel de conhecimentos sobre cafés Hipsters",
+  "questions": [
+    {
+      "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
+      "title": "Como fazer um seletor por id via CSS?",
+      "description": "Essa é pra aquecer",
+      "answer": 2,
+      "alternatives": [
+        ".elemento",
+        "*elemento",
+        "#elemento",
+        "%elemento"
+      ]
+    },
+    {
+      "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
+      "title": "Como fazer um background gradiente com css?",
+      "description": "Faz tempo em haha",
+      "answer": 0,
+      "alternatives": [
+        "background: linear-gradient(#e66465, #9198e5);",
+        "background: gradient(#e66465, #9198e5);"
+      ]
+    }
+  ],
+  "external": [
+    ""
+  ],
+  "theme": {
+    "colors": {
+      "primary": "#7c3500",
+      "secondary": "#b24d00",
+      "mainBg": "#1c1814",
+      "contrastText": "#ffffff",
+      "wrong": "#ff5722",
+      "success": "#4caf50"
+    }
+  },
+  "borderRadius": "4px"
+}
