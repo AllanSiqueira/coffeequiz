@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import Image from 'next/image';
+import PropTypes from 'prop-types';
+import db from '../../../db.json';
 
 const Widget = styled.div`
   margin-top: 24px;
@@ -76,10 +79,48 @@ Widget.Loading = function Loading() {
       </Widget.Header>
 
       <Widget.Content>
-        [Desafio do Loading]
+        <Image src={db.loadingImg} alt="me" width="64" height="64" />
+      </Widget.Content>
+    </Widget>
+  );
+};
+
+Widget.Result = function Result({ results }) {
+  return (
+    <Widget>
+      <Widget.Header>
+        Tela de Resultado:
+      </Widget.Header>
+
+      <Widget.Content>
+        <p>
+          Você acertou
+          {' '}
+          {results.filter((x) => x).length}
+          {' '}
+          perguntas
+        </p>
+        <ul>
+          {results.map((result, index) => (
+            <li key={`result__${result}`}>
+              #
+              {index + 1}
+              {' '}
+              Pergunta :
+              {' '}
+              {result === true
+                ? 'Acertou'
+                : 'Errou'}
+            </li>
+          ))}
+        </ul>
       </Widget.Content>
     </Widget>
   );
 };
 
 export default Widget;
+
+Widget.Result.propTypes = {
+  results: PropTypes.arrayOf(PropTypes.bool.isRequired).isRequired,
+};

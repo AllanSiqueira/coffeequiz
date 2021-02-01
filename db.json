@@ -1,5 +1,6 @@
 {
-  "bg": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpng.pngtree.com%2Fback_origin_pic%2F02%2F65%2F13%2F2e67c6c53c23b7cab25d74b321cb5250.jpg&f=1&nofb=1",
+  "bg": "/imgs/bg.jpeg",
+  "loadingImg": "/imgs/loading.gif",
   "title": "Coffee Quiz",
   "description": "Teste seu nivel de conhecimentos sobre cafés Hipsters",
   "questions": [
@@ -27,7 +28,8 @@
     }
   ],
   "external": [
-    ""
+    "https://aluraquiz-css.omariosouto.vercel.app/",
+    "https://aluraquiz-devsoutinho.omariosouto.vercel.app/"
   ],
   "theme": {
     "colors": {

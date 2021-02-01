@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import db from '../db.json';
 import Widget from '../src/components/Widget';
@@ -17,6 +16,7 @@ export default function QuizPage() {
   const [screenState, setScreenState] = useState(screenStates.LOADING);
   const totalQuestions = db.questions.length;
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [results, setResults] = useState([]);
   const questionIndex = currentQuestion;
   const question = db.questions[questionIndex];
 
@@ -26,14 +26,21 @@ export default function QuizPage() {
     }, 1 * 1000);
   }, []);
 
-  function handleSubmitQuiz() {
+  const handleSubmitQuiz = () => {
     const nextQuestion = questionIndex + 1;
     if (nextQuestion < totalQuestions) {
       setCurrentQuestion(nextQuestion);
     } else {
       setScreenState(screenStates.RESULT);
     }
-  }
+  };
+
+  const addResult = (answer) => {
+    setResults([
+      ...results,
+      answer,
+    ]);
+  };
 
   return (
     <QuizBackground backgroundImage={db.bg}>
@@ -45,12 +52,13 @@ export default function QuizPage() {
             questionIndex={questionIndex}
             totalQuestions={totalQuestions}
             onSubmit={handleSubmitQuiz}
+            addResult={addResult}
           />
         )}
 
         {screenState === screenStates.LOADING && <Widget.Loading />}
 
-        {screenState === screenStates.RESULT && <div>Você acertou X questões, parabéns!</div>}
+        {screenState === screenStates.RESULT && <Widget.Result results={results} />}
       </QuizContainer>
     </QuizBackground>
   );

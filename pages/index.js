@@ -48,6 +48,17 @@ export default function Home() {
           <Widget.Content>
             <h1>Quizes da galera</h1>
             <p>Dá uma olhada nesses quizes incríveis que o pessoal da Imersão React v2 fez:</p>
+            <ul>
+              {db.external.map((link) => (
+                <li key={link}>
+                  <Widget.Topic
+                    href={link}
+                  >
+                    {link.match(/^https:\/\/(.+\..+)\.vercel.app\/?$/i)[1]}
+                  </Widget.Topic>
+                </li>
+              ))}
+            </ul>
           </Widget.Content>
         </Widget>
         <Footer />
